@@ -18,8 +18,15 @@ var getUserRepos = function(user) {
         .then(function(data) {
           displayRepos(data, user);
         });
-      } else {
-        alert("Error: " + response.statusText)
+      } 
+      else {
+        console.log(response);
+        if(!response.statusText) {
+          var errorText = "Error: Try another user name"
+        } else {
+        errorText = "Error: " + response.statusText
+        }
+        alert(errorText);
       }
     })
     .catch(function(error) {
